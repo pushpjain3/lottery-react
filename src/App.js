@@ -29,7 +29,7 @@ function App() {
     getPlayers();
     getBal();
     console.log(manager);
-  }, [manager]);
+  }, []);
 
   const entry = async (e) => {
     e.preventDefault();
