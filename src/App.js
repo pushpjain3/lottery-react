@@ -10,11 +10,13 @@ function App() {
   const [balance, setBalance] = useState(0);
   const [value, setValue] = useState(0);
   const getManager = async () => {
-    let manag = await lottery.methods.manager().call();
+    const accounts = await web3.eth.getAccounts();
+    let manag = await lottery.methods.manager().call({ from: accounts[0] });
     setManager(manag);
   };
   const getPlayers = async () => {
-    let play = await lottery.methods.getPlayers().call();
+    const accounts = await web3.eth.getAccounts();
+    let play = await lottery.methods.getPlayers().call({ from: accounts[0] });
     setPlayers(play);
   };
 
